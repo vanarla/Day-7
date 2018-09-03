@@ -4,39 +4,41 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashSet;
 
 public class Vowels {
 
-	
-	static int count=0;
-	static int count1=0;
-	public static int countVowels(File file) {
-		
-		
-		try(FileReader fileReader=new FileReader(file);
-				BufferedReader reader = new BufferedReader(fileReader);)
-		{
-			String s;
-			while( (s = reader.readLine()) != null)
-			for(int i=0;i<s.length();i++)
-			{
-				char c=s.charAt(i);
-			if(c=='A'||c=='E'||c=='I'||c=='O'||c=='U'||c=='a'||c=='e'||c=='i'||c=='o'||c=='u')
-			{
-				count=count+1;
+	public static String findVowelAndConsonant(File file) throws IOException {
+		HashSet<Character> vowels = new HashSet<Character>();
+		vowels.add('A');
+		vowels.add('E');
+		vowels.add('I');
+		vowels.add('O');
+		vowels.add('U');
+		vowels.add('a');
+		vowels.add('e');
+		vowels.add('i');
+		vowels.add('o');
+		vowels.add('u');
+		int vowelsCount = 0;
+		int consonantCount = 0;
+		try (BufferedReader reader = new BufferedReader( new FileReader(file))) {
+			String s=null;
+			while ((s = reader.readLine()) != null) {
+				for(int i = 0;i < s.length(); i++)
+				{
+					if(vowels.contains(s.charAt(i))) 
+					{
+						vowelsCount++;
+					}
+					else if((s.charAt(i) >='A' && s.charAt(i) <= 'Z') || (s.charAt(i) >='a' && s.charAt(i) <= 'z')  )
+						consonantCount++;
+					else
+					{}
+				}
 			}
-			else
-			{
-				count1=count+1;
-			}
-			}
-		}
-					
-		catch(IOException e)
-		{
-			e.printStackTrace();
-		}
-		return count;
-		
+		return "Number of vowels = " + vowelsCount + "\nNumber of consonants = " + consonantCount;
 	}
+
+}
 }
