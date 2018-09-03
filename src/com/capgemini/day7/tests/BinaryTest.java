@@ -12,7 +12,7 @@ class BinaryTest {
 
 	@Test
 	void testBinaryInteger() {
-		File file = new File("C:\\CreateData.dat");
+		File file = new File("C:\\Pallavi\\CreateData.dat");
 		assertEquals(1,BinaryInteger.writeBinary(file));
 	}
 

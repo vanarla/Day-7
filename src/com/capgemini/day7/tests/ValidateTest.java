@@ -12,6 +12,7 @@ class ValidateTest {
 	void test() throws Exception {
 
 		assertEquals("04/06/1997", ValidateDate.validate("02/06/1997",2));
+		assertEquals("07/09/1995", ValidateDate.validate("05/09/1995",2));
 	}
 
 }

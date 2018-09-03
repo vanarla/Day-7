@@ -11,5 +11,6 @@ class TodayDateTest {
 	@Test
 	void test() {
 		assertEquals("SATURDAY,SEPTEMBER 1,2018",TodayDate.findTodaydate());
+		
 	}
 }
